@@ -96,11 +96,13 @@ $ irb
 
 [Let's look at this together](http://www.developers.meethue.com/documentation/core-concepts)
 
+[http://hueconverter.herokuapp.com/](http://hueconverter.herokuapp.com/)
+
 See "color gets more complicated"
 
 ````ruby
 > transition_time = 10*5
-> light.set_state({:hue => 100, :saturation => 100, lightness => 100}, transition_time).
+> light.set_state({:hue=>30326, :saturation=>255, :bri=>1}, transition_time).
 ````
 
 ---
