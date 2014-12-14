@@ -2,6 +2,11 @@ require 'forecast_io'
 require 'hue'
 require 'geocoder'
 
+client = Hue::Client.new
+light = client.lights.first
+
+light.on = true
+
 ForecastIO.api_key = '21a61c31ad148b8535d2a3f0c77c3516'
 
 def get_coordinates(params)
@@ -26,6 +31,8 @@ forecast = ForecastIO.forecast(coords[0], coords[1])
 
 temperature = forecast.currently.temperature
 
+p temperature
+
 if temperature > 80
   # set to red
   light.hue = 65280
@@ -35,7 +42,7 @@ elsif temperature > 70
 elsif temperature > 50
   # set to pink
   light.hue = 56100
-elsif temperature < 30
+elsif temperature < 40
   # set to blue
   light.hue = 46920
 else
